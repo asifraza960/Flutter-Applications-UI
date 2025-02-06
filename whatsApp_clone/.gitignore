@@ -1,0 +1,38 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Ignore user-specific and sensitive files
+.bash_history
+.gitconfig
+.ssh/
+.vscode/
+.idea/
+.gradle/
+.emulator_console_auth_token
+
+# Ignore Windows user directories
+3D Objects/
+AppData/
+Contacts/
+Documents/
+Downloads/
+Favorites/
+Links/
+Music/
+Pictures/
+Saved Games/
+Searches/
+Videos/
+
+# Ignore Flutter & Dart specific files
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
