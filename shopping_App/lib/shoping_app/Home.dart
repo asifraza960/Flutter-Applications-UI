@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/BlackBag.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/Blu2Bag.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/FarozeBag.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/GoldenBag.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/GreenBag.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/IndigoBag.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/MasBag.dart';
+import 'package:shopping_app/shoping_app/components/ProductFiles/RedBag.dart';
 import 'package:shopping_app/shoping_app/components/products.dart';
 
 class Home extends StatefulWidget {
@@ -7,6 +15,19 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
+
+List <Widget> ScreenList = [
+  Blackbag(),
+  Blue2Bag(),
+  IndegoBag(),
+  FarozeBag(),
+  GoldenBag(),
+  GreenBag(),
+  MasBag(),
+  RedBag()
+
+
+];
 
 List ColorList = [
   Colors.black,
@@ -43,7 +64,8 @@ class _HomeState extends State<Home> {
             body: GridView.builder(
                 itemCount: itemList.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, mainAxisSpacing: 8),
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 8),
                 itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Container(
@@ -76,6 +98,10 @@ class _HomeState extends State<Home> {
                                     ColorList[index], // Button color
                               ),
                               onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ScreenList[index]),
+                                );
                                 // Button Action
                               },
                               child: const Icon(Icons.add, color: Colors.white),
