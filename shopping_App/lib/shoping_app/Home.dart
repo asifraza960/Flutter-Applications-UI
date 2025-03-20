@@ -40,7 +40,34 @@ List ColorList = [
   Colors.red
 ];
 
+
+
+
 class _HomeState extends State<Home> {
+  void _Nextpage(BuildContext context, int index) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => ScreenList[index],
+        transitionDuration: Duration(seconds: 2),
+        reverseTransitionDuration: Duration(seconds: 1),
+        barrierColor: ColorList[index],
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var slideTween = Tween(begin: const Offset(0, 1), end: Offset.zero)
+              .chain(CurveTween(curve: Curves.easeInOut));
+          var rotationTween = Tween(begin: 0.0, end: 1.0)
+              .chain(CurveTween(curve: Curves.easeInOut));
+          return SlideTransition(
+            position: animation.drive(slideTween),
+            child: RotationTransition(
+              turns: animation.drive(rotationTween),
+              child: child,
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -48,7 +75,9 @@ class _HomeState extends State<Home> {
         child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.blue,
-              title: const Text("Woman"),
+              title: const Text("Woman",style: TextStyle(
+                color: Colors.white
+              ),),
               bottom: const TabBar(
                 indicatorColor: Colors.white, // Tab indicator color
                 labelColor: Colors.black, // Active tab text color
@@ -97,13 +126,7 @@ class _HomeState extends State<Home> {
                                 backgroundColor:
                                     ColorList[index], // Button color
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => ScreenList[index]),
-                                );
-                                // Button Action
-                              },
+                              onPressed: ()=>_Nextpage(context,index),
                               child: const Icon(Icons.add, color: Colors.white),
                             ),
                           ),
