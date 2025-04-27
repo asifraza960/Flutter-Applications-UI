@@ -23,9 +23,13 @@ class Productdetailpage extends StatelessWidget {
                       color: Colors.brown,
                       child: Hero(
                         tag: products.title,
+                        placeholderBuilder: (context, heroSize, child) => Opacity(opacity:0.5,child: child,),
                         child: CircleAvatar(
                           backgroundImage: AssetImage(products.imagespath),
+                          radius: 100,
                         ),
+
+
                       ),
                     ),
                     

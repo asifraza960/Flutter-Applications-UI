@@ -11,6 +11,16 @@ class ProductListTile extends StatelessWidget {
       leading: Hero(
         tag: product.title,
         child: CircleAvatar(backgroundImage: AssetImage(product.imagespath)),
+        placeholderBuilder: (context, heroSize, child) => CircleAvatar(
+          backgroundColor: Colors.grey,
+        ),
+        flightShuttleBuilder: (flightContext, animation, flightDirection, fromHeroContext, toHeroContext) => RotationTransition(turns: animation.drive(Tween(begin: 0.0,end: 3.0),
+        ),
+          child: ScaleTransition(scale: animation.drive(Tween(begin: 0.0,end: 5.0)),
+            child: flightContext.widget,
+          ),
+
+        ),
       ),
       title: Text(product.title),
       subtitle: Text(product.price.toString()),

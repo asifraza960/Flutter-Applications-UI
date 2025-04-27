@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heromotion/ProductList.dart';
-import 'package:heromotion/productDetails.dart';
+
 import 'package:heromotion/product_class.dart';
 
 void main() {
@@ -29,7 +29,9 @@ class _MyAppState extends State<MyApp> {
       title: 'Product List',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Hello"),
+          title: const Text("HeroNavigation"),
+          backgroundColor: Colors.blue,
+          centerTitle: true,
         ),
         body: Productlist(products: products),
         floatingActionButton: FloatingActionButton(
