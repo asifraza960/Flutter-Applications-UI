@@ -18,7 +18,7 @@ class Productdetailpage extends StatelessWidget {
                   Container(
                     height: double.infinity,
                     width: double.infinity,
-                    color: Colors.brown,
+                    color: Colors.blue,
                     child: Hero(
                       tag: products.title,
                       placeholderBuilder:
@@ -26,7 +26,7 @@ class Productdetailpage extends StatelessWidget {
                               Opacity(opacity: 0.5, child: child),
                       child: CircleAvatar(
                         backgroundImage: AssetImage(products.imagespath),
-                        radius: 100,
+                        radius: 90,
                       ),
                     ),
                   ),
@@ -37,7 +37,7 @@ class Productdetailpage extends StatelessWidget {
               flex: 7,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text("this is an amazing")],
+                children: [Text(products.title)],
               ),
             ),
           ],
